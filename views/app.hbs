@@ -1,3 +1,10 @@
+<style>
+    .tab{
+        margin-left: 15px;
+        font-weight: bold;
+    }
+
+</style>
 <link rel="stylesheet" type="text/css" href="stylesheets/app.css">
 <div class="wrapper">
     <nav id="sidebar">
@@ -8,8 +15,8 @@
             <div class="title">Trương Quang Long</div>
         </div>
         <div class="menu-html">
-            <input id="tab-1" type="radio" name="tab" class="info" checked><label for="tab-1" class="tab">BẠN BÈ</label>
-            <input id="tab-2" type="radio" name="tab" class="mess"><label for="tab-2" class="tab">Tin Nhắn</label>
+            <input id="tab-1" type="radio" name="tab" class="info" checked ><label for="tab-1" class="tab" style="margin-left: 35px; margin-top: 15px">BẠN BÈ</label>
+            <input id="tab-2" type="radio" name="tab" class="mess"><label for="tab-2" class="tab" style="margin-left: 35px; margin-top: 15px">Tin Nhắn</label>
             <div class="menu-form ">
                 <div class="d-flex">
                     <div class="info-htm row">
@@ -29,7 +36,7 @@
                                 <div>Giới Thiệu: {{this.number_phone}}</div>
                                 <div>Giới Tính: {{this.sex}}</div>
                                 <div>Sở Thích: {{this.interests}}</div>
-                                <a  data-bs-toggle="modal"
+                                <a data-bs-toggle="modal"
                                    data-bs-target="#edit" class="btn-5">Update</a>
                                 <a href="/deleteUsers/{{this._id}}" class="btn-5">DELETE</a>
                                 <br>
@@ -41,56 +48,56 @@
                 <div class="mess-htm">
                     <div class="messages">
                         <div class="avatar">
-                            <img src="img/3.jpg" alt=""/>
+                            <img src="images/phamthihang.jpg" alt=""/>
                         </div>
                         <div class="message">
-                            <div class="user">Nguyễn Thị Thanh Thảo</div>
+                            <div class="user">Phạm Thị Hằng</div>
                             <div class="text">Cậu đang làm gì đó?</div>
                         </div>
                     </div>
                     <div class="messages">
                         <div class="avatar">
-                            <img src="img/team-5.jpg" alt=""/>
+                            <img src="images/thuytrang.jpg" alt=""/>
                         </div>
                         <div class="message">
-                            <div class="user">Đoàn Tuấn Minh</div>
+                            <div class="user">Phạm Thị Thùy Trang</div>
                             <div class="text" id="text-1">Làm quen không em trai?</div>
                         </div>
                     </div>
                     <div class="messages">
                         <div class="avatar">
-                            <img src="img/team-3.jpg" alt=""/>
+                            <img src="images/phamngophuonguyen.jpg" alt=""/>
                         </div>
                         <div class="message">
-                            <div class="user">Nguyễn Đinh Dũng</div>
+                            <div class="user">Phạm Ngô Phương Uyên</div>
                             <div class="text">Alo !!!</div>
                         </div>
                     </div>
                     <div class="messages">
                         <div class="avatar">
-                            <img src="img/team-4.jpg" alt=""/>
+                            <img src="images/kieunguyen.jpg" alt=""/>
                         </div>
                         <div class="message">
-                            <div class="user">Đặng Nguyễn Hải Đăng</div>
+                            <div class="user">Nguyễn Kiều</div>
                             <div class="text" id="text-2">Đi chơi vui không anh?</div>
                         </div>
                     </div>
                     <div class="messages">
                         <div class="avatar">
-                            <img src="img/team-6.jpg" alt=""/>
+                            <img src="images/hoangthanhthuy.jpg" alt=""/>
                         </div>
                         <div class="message">
-                            <div class="user">Vũ Văn Phòng</div>
+                            <div class="user">Hoàng Thanh Thủy</div>
                             <div class="text" id="text-3">Ngủ chưa?</div>
                         </div>
                     </div>
                     <div class="messages">
                         <div class="avatar">
-                            <img src="img/team_7.jpg" alt=""/>
+                            <img src="images/tranngochan.jpg" alt=""/>
                         </div>
                         <div class="message">
-                            <div class="user">Trần Ngọc Đức</div>
-                            <div class="text" id="text-4">Yêu anh không?</div>
+                            <div class="user">Trần Ngọc Hân</div>
+                            <div class="text" id="text-4">Ăn cơm chưa?</div>
                         </div>
                     </div>
                 </div>
@@ -332,62 +339,62 @@
 
                             </div>
                         </div>
-<!--                        <label for="validationTextarea" class="label">Sở Thích</label>-->
-<!--                        <div class="group row" style="margin-left: 25px">-->
-<!--                            <input type="checkbox" class="btn-check" id="btn-check-1-outlined" name="interests"-->
-<!--                                   value="Bún Đậu">-->
-<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
-<!--                                   for="btn-check-1-outlined">Bún Đậu</label><br>-->
-<!--                            <input type="checkbox" class="btn-check" id="btn-check-2-outlined" name="interests"-->
-<!--                                   value="Đá Bóng">-->
-<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
-<!--                                   for="btn-check-2-outlined">Đá Bóng</label><br>-->
-<!--                            <input type="checkbox" class="btn-check" id="btn-check-3-outlined" name="interests"-->
-<!--                                   value="Cầu Long">-->
-<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
-<!--                                   for="btn-check-3-outlined">Cầu Lông</label><br>-->
-<!--                            <input type="checkbox" class="btn-check" id="btn-check-4-outlined" name="interests"-->
-<!--                                   value="Ăn Uống">-->
-<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
-<!--                                   for="btn-check-4-outlined">Ăn Uống</label><br>-->
-<!--                            <input type="checkbox" class="btn-check" id="btn-check-5-outlined" name="interests"-->
-<!--                                   value="Câu Cá">-->
-<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
-<!--                                   for="btn-check-5-outlined">Câu Cá</label><br>-->
-<!--                            <input type="checkbox" class="btn-check" id="btn-check-6-outlined" name="interests"-->
-<!--                                   value="Máy Tính">-->
-<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
-<!--                                   for="btn-check-6-outlined">Máy Tính</label><br>-->
-<!--                            <input type="checkbox" class="btn-check" id="btn-check-7-outlined" name="interests"-->
-<!--                                   value="Tiệc Tùng">-->
-<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
-<!--                                   for="btn-check-7-outlined">Tiệc-->
-<!--                                Tùng</label><br>-->
-<!--                            <input type="checkbox" class="btn-check" id="btn-check-8-outlined" name="interests"-->
-<!--                                   value="Ngủ">-->
-<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
-<!--                                   for="btn-check-8-outlined">Ngủ</label><br>-->
-<!--                            <input type="checkbox" class="btn-check" id="btn-check-9-outlined" name="interests"-->
-<!--                                   value="Vape">-->
-<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
-<!--                                   for="btn-check-9-outlined">Vape</label><br>-->
-<!--                            <input type="checkbox" class="btn-check" id="btn-check-10-outlined" name="interests"-->
-<!--                                   value="Học Hành">-->
-<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
-<!--                                   for="btn-check-10-outlined">Học-->
-<!--                                Hành</label><br>-->
-<!--                            <input type="checkbox" class="btn-check" id="btn-check-11-outlined" name="interests"-->
-<!--                                   value="Buôn Bán">-->
-<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
-<!--                                   for="btn-check-11-outlined">Buôn-->
-<!--                                Bán</label><br>-->
-<!--                            <input type="checkbox" class="btn-check" id="btn-check-12-outlined" name="interests"-->
-<!--                                   value="Lập Trình">-->
-<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
-<!--                                   for="btn-check-12-outlined">Lập-->
-<!--                                Trình</label><br>-->
+                        <!--                        <label for="validationTextarea" class="label">Sở Thích</label>-->
+                        <!--                        <div class="group row" style="margin-left: 25px">-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btn-check-1-outlined" name="interests"-->
+                        <!--                                   value="Bún Đậu">-->
+                        <!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+                        <!--                                   for="btn-check-1-outlined">Bún Đậu</label><br>-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btn-check-2-outlined" name="interests"-->
+                        <!--                                   value="Đá Bóng">-->
+                        <!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+                        <!--                                   for="btn-check-2-outlined">Đá Bóng</label><br>-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btn-check-3-outlined" name="interests"-->
+                        <!--                                   value="Cầu Long">-->
+                        <!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+                        <!--                                   for="btn-check-3-outlined">Cầu Lông</label><br>-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btn-check-4-outlined" name="interests"-->
+                        <!--                                   value="Ăn Uống">-->
+                        <!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+                        <!--                                   for="btn-check-4-outlined">Ăn Uống</label><br>-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btn-check-5-outlined" name="interests"-->
+                        <!--                                   value="Câu Cá">-->
+                        <!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+                        <!--                                   for="btn-check-5-outlined">Câu Cá</label><br>-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btn-check-6-outlined" name="interests"-->
+                        <!--                                   value="Máy Tính">-->
+                        <!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+                        <!--                                   for="btn-check-6-outlined">Máy Tính</label><br>-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btn-check-7-outlined" name="interests"-->
+                        <!--                                   value="Tiệc Tùng">-->
+                        <!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+                        <!--                                   for="btn-check-7-outlined">Tiệc-->
+                        <!--                                Tùng</label><br>-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btn-check-8-outlined" name="interests"-->
+                        <!--                                   value="Ngủ">-->
+                        <!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+                        <!--                                   for="btn-check-8-outlined">Ngủ</label><br>-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btn-check-9-outlined" name="interests"-->
+                        <!--                                   value="Vape">-->
+                        <!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+                        <!--                                   for="btn-check-9-outlined">Vape</label><br>-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btn-check-10-outlined" name="interests"-->
+                        <!--                                   value="Học Hành">-->
+                        <!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+                        <!--                                   for="btn-check-10-outlined">Học-->
+                        <!--                                Hành</label><br>-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btn-check-11-outlined" name="interests"-->
+                        <!--                                   value="Buôn Bán">-->
+                        <!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+                        <!--                                   for="btn-check-11-outlined">Buôn-->
+                        <!--                                Bán</label><br>-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btn-check-12-outlined" name="interests"-->
+                        <!--                                   value="Lập Trình">-->
+                        <!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+                        <!--                                   for="btn-check-12-outlined">Lập-->
+                        <!--                                Trình</label><br>-->
 
-<!--                        </div>-->
+                        <!--                        </div>-->
                         <div class="modal-footer row">
                             <button type="button" class="btn" data-bs-dismiss="modal">Thoát</button>
                             <button type="submit" class="btn">Chỉnh Sửa</button>
