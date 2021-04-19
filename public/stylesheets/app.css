@@ -362,8 +362,18 @@ ul.CTAs a {
    margin: 20px;
 }
 .btn-5 {
-    margin-left: 45px;
-    color: #fff;
+
+
+    border-radius: 25px;
+    background: rgba(255, 255, 255, .1);
+    background: #fd7e14;
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+}
+.link{
+    width: 100px;
+    margin-left: 25px;
     border-radius: 25px;
     background: rgba(255, 255, 255, .1);
     background: #fd7e14;

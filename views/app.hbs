@@ -1,5 +1,5 @@
 <style>
-    .tab{
+    .tab {
         margin-left: 15px;
         font-weight: bold;
     }
@@ -15,8 +15,12 @@
             <div class="title">Trương Quang Long</div>
         </div>
         <div class="menu-html">
-            <input id="tab-1" type="radio" name="tab" class="info" checked ><label for="tab-1" class="tab" style="margin-left: 35px; margin-top: 15px">BẠN BÈ</label>
-            <input id="tab-2" type="radio" name="tab" class="mess"><label for="tab-2" class="tab" style="margin-left: 35px; margin-top: 15px">Tin Nhắn</label>
+            <input id="tab-1" type="radio" name="tab" class="info" checked><label for="tab-1" class="tab"
+                                                                                  style="margin-left: 35px; margin-top: 15px">BẠN
+            BÈ</label>
+            <input id="tab-2" type="radio" name="tab" class="mess"><label for="tab-2" class="tab"
+                                                                          style="margin-left: 35px; margin-top: 15px">Tin
+            Nhắn</label>
             <div class="menu-form ">
                 <div class="d-flex">
                     <div class="info-htm row">
@@ -36,9 +40,11 @@
                                 <div>Giới Thiệu: {{this.number_phone}}</div>
                                 <div>Giới Tính: {{this.sex}}</div>
                                 <div>Sở Thích: {{this.interests}}</div>
-                                <a data-bs-toggle="modal"
-                                   data-bs-target="#edit" class="btn-5">Update</a>
-                                <a href="/deleteUsers/{{this._id}}" class="btn-5">DELETE</a>
+                                <button class="link"><a data-bs-toggle="modal"
+                                                        data-bs-target="#edit">Cập Nhật</a></button>
+                                <button class="link"><a href="/deleteUsers/{{this._id}}"
+                                                        style="    text-decoration: none ; color: #1c1f23">Xóa</a>
+                                </button>
                                 <br>
                                 <div> -------------------------------------------</div>
                             {{/each}}
@@ -262,6 +268,7 @@
                         </div>
 
 
+                        <input name="images" type="file">
 
 
                         <div class="modal-footer row">

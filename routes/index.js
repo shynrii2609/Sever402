@@ -7,8 +7,9 @@ const mongoose = require('mongoose');
 mongoose.connect(dbconnet, {useNewUrlParser: true, useUnifiedTopology: true});
 
 var multer = require('multer');
+
 var upload = multer({
-    dest: 'uploads/'
+   dest: '/uploads'
 })
 
 const db = mongoose.connection;
@@ -25,6 +26,7 @@ var User = new mongoose.Schema({
     introduce: String,
     sex: String,
     interests: Array,
+    images:Array
 })
 
 /* GET home page. */
@@ -33,8 +35,7 @@ router.get('/', function (req, res, next) {
 });
 
 
-router.post('/users', upload.single('images'), function (req, res, next) {
-
+router.post('/users',upload.single('images'), function (req, res, next) {
     var userConnect = db.model('Daty', User);
     userConnect({
         name: req.body.name,
@@ -44,6 +45,10 @@ router.post('/users', upload.single('images'), function (req, res, next) {
         introduce: req.body.introduce,
         sex: req.body.sex,
         interests: req.body.interests,
+        images: req.file.filename
+
+
+
     }).save(function (error) {
         if (error) {
             res.render('./app.hbs')
