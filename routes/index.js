@@ -25,7 +25,6 @@ var User = new mongoose.Schema({
     introduce: String,
     sex: String,
     interests: Array,
-    // images:String
 })
 
 /* GET home page. */
@@ -34,7 +33,7 @@ router.get('/', function (req, res, next) {
 });
 
 
-router.post('/users', upload.single('avatar'), function (req, res, next) {
+router.post('/users', upload.single('images'), function (req, res, next) {
 
     var userConnect = db.model('Daty', User);
     userConnect({
@@ -45,7 +44,6 @@ router.post('/users', upload.single('avatar'), function (req, res, next) {
         introduce: req.body.introduce,
         sex: req.body.sex,
         interests: req.body.interests,
-        // avatar:req.file.filename
     }).save(function (error) {
         if (error) {
             res.render('./app.hbs')
