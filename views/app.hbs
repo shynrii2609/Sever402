@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css"   href="stylesheets/app.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/app.css">
 <div class="wrapper">
     <nav id="sidebar">
         <div class="sidebar-header">
@@ -8,20 +8,34 @@
             <div class="title">Trương Quang Long</div>
         </div>
         <div class="menu-html">
-            <input id="tab-1" type="radio" name="tab" class="info"  checked><label for="tab-1" class="tab">Thông
-            Tin</label>
+            <input id="tab-1" type="radio" name="tab" class="info" checked><label for="tab-1" class="tab">BẠN BÈ</label>
             <input id="tab-2" type="radio" name="tab" class="mess"><label for="tab-2" class="tab">Tin Nhắn</label>
             <div class="menu-form ">
                 <div class="d-flex">
                     <div class="info-htm row">
-                        <div class="list ">
-                            <div class="avatar">
+                        <div class="list">
+                            <div class="avatar" style="margin-left: 80px">
                                 <img src="../images/add.png" id="add" alt="" class="btn-primary" data-bs-toggle="modal"
                                      data-bs-target="#addFriend"/>
                             </div>
                         </div>
-
-
+                        <div class="info-user" action="/getUsers">
+                            {{#each Daty}}
+                                <div>ID: {{this._id}}</div>
+                                <div>Tên: {{this.name}}</div>
+                                <div>Ngày Sinh: {{this.birthday}}</div>
+                                <div>Email: {{this.email}}</div>
+                                <div>Số Điện Thoại: {{this.number_phone}}</div>
+                                <div>Giới Thiệu: {{this.number_phone}}</div>
+                                <div>Giới Tính: {{this.sex}}</div>
+                                <div>Sở Thích: {{this.interests}}</div>
+                                <a  data-bs-toggle="modal"
+                                   data-bs-target="#edit" class="btn-5">Update</a>
+                                <a href="/deleteUsers/{{this._id}}" class="btn-5">DELETE</a>
+                                <br>
+                                <div> -------------------------------------------</div>
+                            {{/each}}
+                        </div>
                     </div>
                 </div>
                 <div class="mess-htm">
@@ -87,7 +101,7 @@
     <div id="content">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <button type="button" id="sidebarCollapse" class="btn-info">
+                <button type="button" id="sidebarCollapse" class="btn-5">
                     <i class="fas fa-align-left"></i>
                 </button>
             </div>
@@ -127,41 +141,41 @@
     <div class=" modal-dialog ">
         <div class="modal-content">
             <div class="modal-header align-items-center">
-                <img src="img/SR.png" width="100px" class="logo-1">
+                <img src="images/logo_daty.png" width="100px" class="logo-1">
                 <h5 class="modal-title" id="staticBackdropLabel-2" style="margin-left: 230px">THÊM BẠN BÈ</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="sign-up-htm">
-                    <form class="was-validated">
+                    <form class="was-validated" action="/users" method="post" enctype="multipart/form-data">
                         <div class="group">
                             <label class="label">Họ Và Tên</label>
-                            <input id="fullname" type="text" class="form-control is-invalid"
+                            <input name="name" id="fullname" type="text" class="form-control is-invalid"
                                    placeholder="VD: Trương Quang Long" required>
 
                         </div>
                         <div class="group">
                             <label class="label">Ngày Sinh</label>
-                            <input id="birthday" type="date" class="form-control is-invalid"
+                            <input name="birthday" id="birthday" type="date" class="form-control is-invalid"
                                    placeholder="VD: 26/09/2000" required>
 
                         </div>
                         <div class="group">
                             <label class="label">Email</label>
-                            <input id="email" type="email" class="form-control is-invalid"
+                            <input name="email" id="email" type="email" class="form-control is-invalid"
                                    placeholder="VD: tlong4856@gmail.com" required>
 
                         </div>
                         <div class="group">
                             <label class="label">Số Điện Thoại</label>
-                            <input id="number" type="tel" class="form-control is-invalid"
+                            <input name="number_phone" id="number" type="tel" class="form-control is-invalid"
                                    placeholder="VD: 0389127389"
                                    required>
 
                         </div>
                         <div class="group">
                             <label for="validationTextarea" class="label">Giới Thiệu Ngắn</label>
-                            <textarea class="form-control is-invalid" id="validationTextarea"
+                            <textarea name="introduce" class="form-control is-invalid" id="validationTextarea"
                                       placeholder="VD: Nhà tôi ở Cần Thơ. Bạn gái tôi tên Thảo,.... "
                                       required></textarea>
 
@@ -171,70 +185,84 @@
                             <div class="form-check">
 
                                 <input type="radio" class="form-check-input" id="validationFormCheck2"
-                                       name="radio-stacked" required>
+                                       name="sex" required value="Nam">
                                 <label class="form-check-label" for="validationFormCheck2">Nam</label>
+
                             </div>
                             <div class="form-check group">
                                 <input type="radio" class="form-check-input" id="validationFormCheck3"
-                                       name="radio-stacked" required>
-                                <label class="form-check-label" for="validationFormCheck3">Nữ</label>
+                                       name="sex" required value="Nữ">
+                                <label class="form-check-label" for="validationFormCheck2">Nữ</label>
+
 
                             </div>
                         </div>
                         <label for="validationTextarea" class="label">Sở Thích</label>
                         <div class="group row" style="margin-left: 25px">
-
-                            <input type="checkbox" class="btn-check" id="btn-check-1-outlined">
+                            <input type="checkbox" class="btn-check" id="btn-check-1-outlined" name="interests"
+                                   value="Bún Đậu">
                             <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
                                    for="btn-check-1-outlined">Bún Đậu</label><br>
-                            <input type="checkbox" class="btn-check" id="btn-check-2-outlined">
+                            <input type="checkbox" class="btn-check" id="btn-check-2-outlined" name="interests"
+                                   value="Đá Bóng">
                             <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
                                    for="btn-check-2-outlined">Đá Bóng</label><br>
-                            <input type="checkbox" class="btn-check" id="btn-check-3-outlined">
+                            <input type="checkbox" class="btn-check" id="btn-check-3-outlined" name="interests"
+                                   value="Cầu Long">
                             <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
                                    for="btn-check-3-outlined">Cầu Lông</label><br>
-                            <input type="checkbox" class="btn-check" id="btn-check-4-outlined">
+                            <input type="checkbox" class="btn-check" id="btn-check-4-outlined" name="interests"
+                                   value="Ăn Uống">
                             <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
                                    for="btn-check-4-outlined">Ăn Uống</label><br>
-                            <input type="checkbox" class="btn-check" id="btn-check-5-outlined">
+                            <input type="checkbox" class="btn-check" id="btn-check-5-outlined" name="interests"
+                                   value="Câu Cá">
                             <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
                                    for="btn-check-5-outlined">Câu Cá</label><br>
-                            <input type="checkbox" class="btn-check" id="btn-check-6-outlined">
+                            <input type="checkbox" class="btn-check" id="btn-check-6-outlined" name="interests"
+                                   value="Máy Tính">
                             <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
                                    for="btn-check-6-outlined">Máy Tính</label><br>
-                            <input type="checkbox" class="btn-check" id="btn-check-7-outlined">
+                            <input type="checkbox" class="btn-check" id="btn-check-7-outlined" name="interests"
+                                   value="Tiệc Tùng">
                             <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
                                    for="btn-check-7-outlined">Tiệc
                                 Tùng</label><br>
-                            <input type="checkbox" class="btn-check" id="btn-check-8-outlined">
+                            <input type="checkbox" class="btn-check" id="btn-check-8-outlined" name="interests"
+                                   value="Ngủ">
                             <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
                                    for="btn-check-8-outlined">Ngủ</label><br>
-                            <input type="checkbox" class="btn-check" id="btn-check-9-outlined">
+                            <input type="checkbox" class="btn-check" id="btn-check-9-outlined" name="interests"
+                                   value="Vape">
                             <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
                                    for="btn-check-9-outlined">Vape</label><br>
-                            <input type="checkbox" class="btn-check" id="btn-check-10-outlined">
+                            <input type="checkbox" class="btn-check" id="btn-check-10-outlined" name="interests"
+                                   value="Học Hành">
                             <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
                                    for="btn-check-10-outlined">Học
                                 Hành</label><br>
-                            <input type="checkbox" class="btn-check" id="btn-check-11-outlined">
+                            <input type="checkbox" class="btn-check" id="btn-check-11-outlined" name="interests"
+                                   value="Buôn Bán">
                             <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
                                    for="btn-check-11-outlined">Buôn
                                 Bán</label><br>
-                            <input type="checkbox" class="btn-check" id="btn-check-12-outlined">
+                            <input type="checkbox" class="btn-check" id="btn-check-12-outlined" name="interests"
+                                   value="Lập Trình">
                             <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
                                    for="btn-check-12-outlined">Lập
                                 Trình</label><br>
 
+                        </div>
+                        <div class="modal-footer row">
+                            <button type="button" class="btn" data-bs-dismiss="modal">Thoát</button>
+                            <button type="submit" class="btn">Thêm Bạn Bè</button>
                         </div>
 
                     </form>
                 </div>
 
             </div>
-            <div class="modal-footer row">
-                <button type="button" class="btn" data-bs-dismiss="modal">Thoát</button>
-                <button type="button" class="btn">Thêm Bạn Bè</button>
-            </div>
+
         </div>
     </div>
 
@@ -243,113 +271,132 @@
     <div class=" modal-dialog ">
         <div class="modal-content">
             <div class="modal-header align-items-center">
-                <img src="img/SR.png" width="100px" class="logo-1">
+                <img src="images/logo_daty.png" width="100px" class="logo-1">
                 <h5 class="modal-title" id="staticBackdropLabel-3" style="margin-left: 210px">CHỈNH SỬA THÔNG TIN</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="sign-up-htm">
-                    <form class="was-validated">
+                    <form class="was-validated" action="/update" method="post">
+                        <div class="group">
+                            <label class="label">Nhập ID người cần chỉnh sửa: </label>
+                            <input id="id" type="text" class="form-control is-invalid" name="id"
+                                   required>
+                        </div>
                         <div class="group">
                             <label class="label">Họ Và Tên</label>
-                            <input id="editfullname" type="text" class="form-control is-invalid"
-                                   value="Trương Quang Long" required>
+                            <input id="editfullname" type="text" class="form-control is-invalid" name="name"
+                                   required>
 
                         </div>
                         <div class="group">
                             <label class="label">Ngày Sinh</label>
-                            <input id="editbirthday" type="date" class="form-control is-invalid"
-                                   value="26/09/2000" required>
+                            <input id="editbirthday" type="date" class="form-control is-invalid" name="birthday"
+                                   required>
 
                         </div>
                         <div class="group">
                             <label class="label">Email</label>
-                            <input id="editemail" type="email" class="form-control is-invalid"
-                                   value="tlong4856@gmail.com" required>
+                            <input id="editemail" type="email" class="form-control is-invalid" name="email"
+                                   required>
 
                         </div>
                         <div class="group">
                             <label class="label">Số Điện Thoại</label>
-                            <input id="editnumber" type="tel" class="form-control is-invalid"
-                                   value="0389127389"
+                            <input name="number_phone" id="number" type="tel" class="form-control is-invalid"
+                                   placeholder="VD: 0389127389"
                                    required>
 
                         </div>
                         <div class="group">
                             <label for="validationTextarea" class="label">Giới Thiệu Ngắn</label>
-                            <textarea class="form-control is-invalid" id="editalidationTextarea"
-                                      required>Nhà tôi ở Cần Thơ. Bạn gái tôi tên Thảo,.... </textarea>
+                            <textarea name="introduce" class="form-control is-invalid" id="validationTextarea"
+                                      placeholder="VD: Nhà tôi ở Cần Thơ. Bạn gái tôi tên Thảo,.... "
+                                      required></textarea>
 
                         </div>
                         <div class="group">
                             <label class="label">Giới Tính</label>
                             <div class="form-check">
 
-                                <input type="radio" class="form-check-input" id="editvalidationFormCheck2"
-                                       name="radio-stacked" required checked>
-                                <label class="form-check-label" for="validationFormCheck2" >Nam</label>
+                                <input type="radio" class="form-check-input" id="validationFormCheck2"
+                                       name="sex" required value="Nam">
+                                <label class="form-check-label" for="validationFormCheck2">Nam</label>
+
                             </div>
                             <div class="form-check group">
-                                <input type="radio" class="form-check-input" id="editvalidationFormCheck3"
-                                       name="radio-stacked" required>
-                                <label class="form-check-label" for="validationFormCheck3">Nữ</label>
+                                <input type="radio" class="form-check-input" id="validationFormCheck3"
+                                       name="sex" required value="Nữ">
+                                <label class="form-check-label" for="validationFormCheck2">Nữ</label>
+
 
                             </div>
                         </div>
-                        <label for="validationTextarea" class="label">Sở Thích</label>
-                        <div class="group row" style="margin-left: 25px">
+<!--                        <label for="validationTextarea" class="label">Sở Thích</label>-->
+<!--                        <div class="group row" style="margin-left: 25px">-->
+<!--                            <input type="checkbox" class="btn-check" id="btn-check-1-outlined" name="interests"-->
+<!--                                   value="Bún Đậu">-->
+<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+<!--                                   for="btn-check-1-outlined">Bún Đậu</label><br>-->
+<!--                            <input type="checkbox" class="btn-check" id="btn-check-2-outlined" name="interests"-->
+<!--                                   value="Đá Bóng">-->
+<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+<!--                                   for="btn-check-2-outlined">Đá Bóng</label><br>-->
+<!--                            <input type="checkbox" class="btn-check" id="btn-check-3-outlined" name="interests"-->
+<!--                                   value="Cầu Long">-->
+<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+<!--                                   for="btn-check-3-outlined">Cầu Lông</label><br>-->
+<!--                            <input type="checkbox" class="btn-check" id="btn-check-4-outlined" name="interests"-->
+<!--                                   value="Ăn Uống">-->
+<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+<!--                                   for="btn-check-4-outlined">Ăn Uống</label><br>-->
+<!--                            <input type="checkbox" class="btn-check" id="btn-check-5-outlined" name="interests"-->
+<!--                                   value="Câu Cá">-->
+<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+<!--                                   for="btn-check-5-outlined">Câu Cá</label><br>-->
+<!--                            <input type="checkbox" class="btn-check" id="btn-check-6-outlined" name="interests"-->
+<!--                                   value="Máy Tính">-->
+<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+<!--                                   for="btn-check-6-outlined">Máy Tính</label><br>-->
+<!--                            <input type="checkbox" class="btn-check" id="btn-check-7-outlined" name="interests"-->
+<!--                                   value="Tiệc Tùng">-->
+<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+<!--                                   for="btn-check-7-outlined">Tiệc-->
+<!--                                Tùng</label><br>-->
+<!--                            <input type="checkbox" class="btn-check" id="btn-check-8-outlined" name="interests"-->
+<!--                                   value="Ngủ">-->
+<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+<!--                                   for="btn-check-8-outlined">Ngủ</label><br>-->
+<!--                            <input type="checkbox" class="btn-check" id="btn-check-9-outlined" name="interests"-->
+<!--                                   value="Vape">-->
+<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+<!--                                   for="btn-check-9-outlined">Vape</label><br>-->
+<!--                            <input type="checkbox" class="btn-check" id="btn-check-10-outlined" name="interests"-->
+<!--                                   value="Học Hành">-->
+<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+<!--                                   for="btn-check-10-outlined">Học-->
+<!--                                Hành</label><br>-->
+<!--                            <input type="checkbox" class="btn-check" id="btn-check-11-outlined" name="interests"-->
+<!--                                   value="Buôn Bán">-->
+<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+<!--                                   for="btn-check-11-outlined">Buôn-->
+<!--                                Bán</label><br>-->
+<!--                            <input type="checkbox" class="btn-check" id="btn-check-12-outlined" name="interests"-->
+<!--                                   value="Lập Trình">-->
+<!--                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"-->
+<!--                                   for="btn-check-12-outlined">Lập-->
+<!--                                Trình</label><br>-->
 
-                            <input type="checkbox" class="btn-check" id="edit-btn-check-1-outlined" checked autocomplete="off">
-                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
-                                   for="btn-check-1-outlined">Bún Đậu</label><br>
-                            <input type="checkbox" class="btn-check" id="edit-btn-check-2-outlined">
-                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
-                                   for="btn-check-2-outlined">Đá Bóng</label><br>
-                            <input type="checkbox" class="btn-check" id="edit-btn-check-3-outlined">
-                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
-                                   for="btn-check-3-outlined">Cầu Lông</label><br>
-                            <input type="checkbox" class="btn-check" id="edit-btn-check-4-outlined" checked autocomplete="off">
-                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
-                                   for="btn-check-4-outlined">Ăn Uống</label><br>
-                            <input type="checkbox" class="btn-check" id="edit-btn-check-5-outlined">
-                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
-                                   for="btn-check-5-outlined">Câu Cá</label><br>
-                            <input type="checkbox" class="btn-check" id="edit-btn-check-6-outlined">
-                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
-                                   for="btn-check-6-outlined">Máy Tính</label><br>
-                            <input type="checkbox" class="btn-check" id="edit-btn-check-7-outlined" checked autocomplete="off">
-                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
-                                   for="btn-check-7-outlined">Tiệc
-                                Tùng</label><br>
-                            <input type="checkbox" class="btn-check" id="edit-btn-check-8-outlined">
-                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
-                                   for="btn-check-8-outlined">Ngủ</label><br>
-                            <input type="checkbox" class="btn-check" id="edit-btn-check-9-outlined">
-                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
-                                   for="btn-check-9-outlined">Vape</label><br>
-                            <input type="checkbox" class="btn-check" id="edit-btn-check-10-outlined">
-                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
-                                   for="btn-check-10-outlined">Học
-                                Hành</label><br>
-                            <input type="checkbox" class="btn-check" id="edit-btn-check-11-outlined">
-                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
-                                   for="btn-check-11-outlined">Buôn
-                                Bán</label><br>
-                            <input type="checkbox" class="btn-check" id="edit-btn-check-12-outlined">
-                            <label style="width: 150px; margin: 15px" class="btn btn-outline-secondary"
-                                   for="btn-check-12-outlined">Lập
-                                Trình</label><br>
-
+<!--                        </div>-->
+                        <div class="modal-footer row">
+                            <button type="button" class="btn" data-bs-dismiss="modal">Thoát</button>
+                            <button type="submit" class="btn">Chỉnh Sửa</button>
                         </div>
 
                     </form>
                 </div>
             </div>
-            <div class="modal-footer row">
-                <button type="button" class="button">Xóa Bạn Bè</button>
-                <button type="button" class="btn" data-bs-dismiss="modal">Thoát</button>
-                <button type="button" class="btn">Chỉnh Sửa</button>
-            </div>
+
         </div>
     </div>
 
